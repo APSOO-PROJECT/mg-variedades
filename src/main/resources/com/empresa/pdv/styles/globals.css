@@ -1,0 +1,94 @@
+/* ==========================================================================
+   GUIA DE ESTILO & VARIÁVEIS GLOBAIS
+   ========================================================================== */
+
+.root {
+  /* Paleta de Cores Primária (SaaS/Modern) */
+  -fx-color-brand-primary: #2563eb; /* Azul principal (Ações, destaque) */
+  -fx-color-brand-hover: #1d4ed8; /* Hover de botões primários */
+
+  /* Cores de Superfície & Fundo */
+  -fx-color-bg-main: #f8fafc; /* Fundo principal do app */
+  -fx-color-bg-card: #ffffff; /* Fundo de cards, tabelas e modais */
+  -fx-color-border: #e2e8f0; /* Bordas suaves */
+
+  /* Tipografia & Texto */
+  -fx-color-text-main: #0f172a; /* Texto principal (Títulos) */
+  -fx-color-text-muted: #64748b; /* Subtítulos e textos secundários */
+  -fx-color-text-subtle: #94a3b8; /* Rótulos e textos apagados */
+
+  /* Cores de Status */
+  -fx-color-status-success: #10b981; /* Sucesso / Dinheiro entrando */
+  -fx-color-status-danger: #ef4444; /* Erro / Alerta / Exclusão */
+  -fx-color-status-warning: #f59e0b; /* Alerta / Pendência */
+  -fx-color-status-info: #6366f1; /* Informações secundárias */
+}
+
+/* ==========================================================================
+   CLASSES UTILITÁRIAS PERSONALIZADAS
+   ========================================================================== */
+
+/* Fundo da Janela */
+.bg-app {
+  -fx-background-color: -fx-color-bg-main;
+}
+
+/* Estilo Padrão para Cards */
+.card-panel {
+  -fx-background-color: -fx-color-bg-card;
+  -fx-background-radius: 10px;
+  -fx-border-color: -fx-color-border;
+  -fx-border-radius: 10px;
+  -fx-border-width: 1px;
+  -fx-padding: 18px;
+}
+
+/* Sidebar e Divisores */
+.sidebar-panel {
+  -fx-background-color: -fx-color-bg-card;
+  -fx-border-color: -fx-color-border;
+  -fx-border-width: 0 1px 0 0;
+  -fx-padding: 20px 15px;
+}
+
+/* Tipografia */
+.text-heading {
+  -fx-font-size: 22px;
+  -fx-font-weight: bold;
+  -fx-fill: -fx-color-text-main;
+}
+
+.text-subheading {
+  -fx-font-size: 13px;
+  -fx-fill: -fx-color-text-muted;
+}
+
+.text-section-label {
+  -fx-font-size: 11px;
+  -fx-font-weight: bold;
+  -fx-fill: -fx-color-text-subtle;
+}
+
+/* Utilitários de Texto para Métricas */
+.text-metric-primary {
+  -fx-font-size: 26px;
+  -fx-font-weight: bold;
+  -fx-fill: -fx-color-text-main;
+}
+
+.text-metric-success {
+  -fx-font-size: 26px;
+  -fx-font-weight: bold;
+  -fx-fill: -fx-color-status-success;
+}
+
+.text-metric-info {
+  -fx-font-size: 26px;
+  -fx-font-weight: bold;
+  -fx-fill: -fx-color-status-info;
+}
+
+/* Ícone da Logo na Sidebar */
+.icon-brand {
+  -fx-icon-color: -fx-color-brand-primary;
+}

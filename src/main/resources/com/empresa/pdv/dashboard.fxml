@@ -10,20 +10,20 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.empresa.pdv.controllers.DashboardController"
-            prefHeight="760.0" prefWidth="1280.0" style="-fx-background-color: #F8FAFC;">
+            prefHeight="760.0" prefWidth="1280.0" styleClass="bg-app">
 
    <!-- Sidebar Navigation -->
    <left>
-      <VBox prefWidth="250.0" spacing="10.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E8F0; -fx-border-width: 0 1 0 0; -fx-padding: 20 15 20 15;">
+      <VBox prefWidth="250.0" spacing="10.0" styleClass="sidebar-panel">
          <children>
             <!-- Logo Header -->
             <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
-                  <FontIcon iconLiteral="fth-shopping-bag" iconSize="22" iconColor="#2563EB"/>
+                  <FontIcon iconLiteral="fth-shopping-bag" iconSize="22" styleClass="icon-brand" />
                   <VBox>
                      <children>
-                        <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #0F172A;" text="Hórus PDV" />
-                        <Label style="-fx-font-size: 11px; -fx-text-fill: #64748B;" text="Painel Operacional" />
+                        <Label styleClass="text-subheading" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Hórus PDV" />
+                        <Label styleClass="text-section-label" text="Painel Operacional" />
                      </children>
                   </VBox>
                </children>
@@ -32,14 +32,14 @@
                </VBox.margin>
             </HBox>
 
-            <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #94A3B8;" text="PRINCIPAL" />
+            <Label styleClass="text-section-label" text="PRINCIPAL" />
             <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" styleClass="accent" text="Home">
                <graphic>
                   <FontIcon iconLiteral="fth-home" iconSize="16" />
                </graphic>
             </Button>
 
-            <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #94A3B8;" text="CADASTROS">
+            <Label styleClass="text-section-label" text="CADASTROS">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -60,7 +60,7 @@
                </graphic>
             </Button>
 
-            <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #94A3B8;" text="OPERAÇÃO">
+            <Label styleClass="text-section-label" text="OPERAÇÃO">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -86,8 +86,8 @@
             <!-- Title Header -->
             <VBox spacing="4.0">
                <children>
-                  <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #0F172A;" text="Home" />
-                  <Label style="-fx-font-size: 13px; -fx-text-fill: #64748B;" text="Visão geral da operação do Hórus PDV em tempo real." />
+                  <Label styleClass="text-heading" text="Home" />
+                  <Label styleClass="text-subheading" text="Visão geral da operação do Hórus PDV em tempo real." />
                </children>
             </VBox>
 
@@ -95,11 +95,11 @@
             <HBox spacing="16.0">
                <children>
                   <!-- Card 1 -->
-                  <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #E2E8F0; -fx-border-radius: 10; -fx-padding: 18;">
+                  <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
                      <children>
-                        <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #64748B;" text="VENDAS DO DIA" />
-                        <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #0F172A;" text="42" />
-                        <Label style="-fx-font-size: 11px; -fx-text-fill: #94A3B8;" text="Operações registradas hoje">
+                        <Label styleClass="text-section-label" text="VENDAS DO DIA" />
+                        <Label styleClass="text-metric-primary" text="42" />
+                        <Label styleClass="text-section-label" text="Operações registradas hoje">
                            <VBox.margin>
                               <Insets top="4.0" />
                            </VBox.margin>
@@ -108,11 +108,11 @@
                   </VBox>
 
                   <!-- Card 2 -->
-                  <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #E2E8F0; -fx-border-radius: 10; -fx-padding: 18;">
+                  <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
                      <children>
-                        <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #64748B;" text="TICKET MÉDIO" />
-                        <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #10B981;" text="R$ 186,30" />
-                        <Label style="-fx-font-size: 11px; -fx-text-fill: #94A3B8;" text="Média das vendas finalizadas">
+                        <Label styleClass="text-section-label" text="TICKET MÉDIO" />
+                        <Label styleClass="text-metric-success" text="R$ 186,30" />
+                        <Label styleClass="text-section-label" text="Média das vendas finalizadas">
                            <VBox.margin>
                               <Insets top="4.0" />
                            </VBox.margin>
@@ -121,11 +121,11 @@
                   </VBox>
 
                   <!-- Card 3 -->
-                  <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #E2E8F0; -fx-border-radius: 10; -fx-padding: 18;">
+                  <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
                      <children>
-                        <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #64748B;" text="CLIENTES ATENDIDOS" />
-                        <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #0F172A;" text="31" />
-                        <Label style="-fx-font-size: 11px; -fx-text-fill: #94A3B8;" text="Atendimentos no período">
+                        <Label styleClass="text-section-label" text="CLIENTES ATENDIDOS" />
+                        <Label styleClass="text-metric-primary" text="31" />
+                        <Label styleClass="text-section-label" text="Atendimentos no período">
                            <VBox.margin>
                               <Insets top="4.0" />
                            </VBox.margin>
@@ -134,11 +134,11 @@
                   </VBox>
 
                   <!-- Card 4 -->
-                  <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-color: #E2E8F0; -fx-border-radius: 10; -fx-padding: 18;">
+                  <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
                      <children>
-                        <Label style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #64748B;" text="PEDIDOS ABERTOS" />
-                        <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #6366F1;" text="6" />
-                        <Label style="-fx-font-size: 11px; -fx-text-fill: #94A3B8;" text="Pendências operacionais">
+                        <Label styleClass="text-section-label" text="PEDIDOS ABERTOS" />
+                        <Label styleClass="text-metric-info" text="6" />
+                        <Label styleClass="text-section-label" text="Pendências operacionais">
                            <VBox.margin>
                               <Insets top="4.0" />
                            </VBox.margin>
