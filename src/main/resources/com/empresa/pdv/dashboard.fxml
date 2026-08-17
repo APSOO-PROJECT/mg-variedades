@@ -10,7 +10,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.empresa.pdv.controllers.DashboardController"
-            prefHeight="760.0" prefWidth="1280.0" styleClass="bg-app">
+            prefHeight="1080.0" prefWidth="1920.0" styleClass="bg-app">
 
    <!-- Sidebar Navigation -->
    <left>
@@ -22,7 +22,7 @@
                   <FontIcon iconLiteral="fth-shopping-bag" iconSize="22" styleClass="icon-brand" />
                   <VBox>
                      <children>
-                        <Label styleClass="text-subheading" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Hórus PDV" />
+                        <Label styleClass="text-subheading" style="-fx-font-weight: bold; -fx-font-size: 16px;" text="MG Variedades" />
                         <Label styleClass="text-section-label" text="Painel Operacional" />
                      </children>
                   </VBox>
@@ -87,7 +87,7 @@
             <VBox spacing="4.0">
                <children>
                   <Label styleClass="text-heading" text="Home" />
-                  <Label styleClass="text-subheading" text="Visão geral da operação do Hórus PDV em tempo real." />
+                  <Label styleClass="text-subheading" text="Visão geral da operação do PDV da MG Variedades em tempo real." />
                </children>
             </VBox>
 

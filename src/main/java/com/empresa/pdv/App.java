@@ -23,7 +23,7 @@ public void start(Stage stage) throws Exception {
     String globalsCss = getClass().getResource("/com/empresa/pdv/styles/globals.css").toExternalForm();
     scene.getStylesheets().add(globalsCss);
 
-    stage.setTitle("Hórus PDV - Gestão de Loja");
+    stage.setTitle("MG Variedades - Gestão de Loja");
     stage.setScene(scene);
     stage.show();
 }
