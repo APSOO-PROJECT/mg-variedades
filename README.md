@@ -1,4 +1,3 @@
-````markdown
 # 🛒 MG Variedades — Gestão de Loja
 
 O **MG Variedades** é um sistema desktop moderno para gestão de pontos de venda em estabelecimentos varejistas de alto fluxo. O projeto foi projetado com arquitetura modular JavaFX, aproveitando componentes e temas utilitários para entregar uma interface fluida, responsiva e com estética SaaS/Web contemporânea.
@@ -33,11 +32,11 @@ Antes de clonar e rodar o projeto, certifique-se de ter os seguintes componentes
 ## 🚀 Como Rodar o Projeto
 
 1. **Clone o repositório:**
+
    ```bash
    git clone [https://github.com/enzovalencuela/mg-variedades.git](https://github.com/enzovalencuela/mg-variedades.git)
    cd mg-variedades
    ```
-````
 
 2. **Execute a aplicação via Maven:**
 
@@ -120,7 +119,3 @@ git push origin feature/nome-da-sua-task
 
 4. Abra um **Pull Request (PR)** para a branch `main`.
 5. Garanta que o template de PR foi preenchido corretamente e solicite a revisão do Líder de Front-End antes de realizar o merge.
-
-```
-
-```
