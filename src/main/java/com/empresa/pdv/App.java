@@ -14,7 +14,7 @@ public void start(Stage stage) throws Exception {
     // 1. Tema do AtlantaFX
     Application.setUserAgentStylesheet(new PrimerLight().getUserAgentStylesheet());
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/empresa/pdv/dashboard.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/empresa/pdv/views/dashboard.fxml"));
     Parent root = loader.load();
 
     Scene scene = new Scene(root, 1280, 760);

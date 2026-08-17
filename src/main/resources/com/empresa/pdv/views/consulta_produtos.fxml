@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns="http://javafx.com/javafx" 
+      xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.empresa.pdv.controllers.ConsultaProdutosController"
+      spacing="10" styleClass="p-4">
+    <Label text="Módulo de Consulta de Produtos" styleClass="title"/>
+</VBox>
