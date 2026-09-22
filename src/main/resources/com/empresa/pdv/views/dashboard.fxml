@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
@@ -33,7 +34,7 @@
             </HBox>
 
             <Label styleClass="text-section-label" text="PRINCIPAL" />
-            <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" styleClass="accent" text="Home">
+            <Button fx:id="btnHome" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleNavegarHome" styleClass="accent" text="Home">
                <graphic>
                   <FontIcon iconLiteral="fth-home" iconSize="16" />
                </graphic>
@@ -44,7 +45,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" styleClass="flat" text="Cliente">
+            <Button fx:id="btnUsuarios" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleNavegarUsuarios" styleClass="flat" text="Usuários">
                <graphic>
                   <FontIcon iconLiteral="fth-user" iconSize="16" />
                </graphic>
@@ -75,79 +76,83 @@
                   <FontIcon iconLiteral="fth-clock" iconSize="16" />
                </graphic>
             </Button>
+            <Button fx:id="btnSair" maxWidth="1.7976931348623157E308" onAction="#handleLogout" styleClass="flat, danger" text="Sair">
+               <graphic>
+                  <FontIcon iconLiteral="fth-log-out" iconSize="16" />
+               </graphic>
+            </Button>
          </children>
       </VBox>
    </left>
 
-   <!-- Main Content Area -->
+   <!-- Main Content Area Dinâmica -->
    <center>
-      <VBox spacing="20.0" style="-fx-padding: 30;">
+      <StackPane fx:id="contentArea" BorderPane.alignment="CENTER">
          <children>
-            <!-- Title Header -->
-            <VBox spacing="4.0">
+            <!-- View Inicial: Home / Dashboard -->
+            <VBox spacing="20.0" style="-fx-padding: 30;">
                <children>
-                  <Label styleClass="text-heading" text="Home" />
-                  <Label styleClass="text-subheading" text="Visão geral da operação do PDV da MG Variedades em tempo real." />
+                  <VBox spacing="4.0">
+                     <children>
+                        <Label styleClass="text-heading" text="Home" />
+                        <Label styleClass="text-subheading" text="Visão geral da operação do PDV da MG Variedades em tempo real." />
+                     </children>
+                  </VBox>
+
+                  <HBox spacing="16.0">
+                     <children>
+                        <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
+                           <children>
+                              <Label styleClass="text-section-label" text="VENDAS DO DIA" />
+                              <Label styleClass="text-metric-primary" text="42" />
+                              <Label styleClass="text-section-label" text="Operações registradas hoje">
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
+                           <children>
+                              <Label styleClass="text-section-label" text="TICKET MÉDIO" />
+                              <Label styleClass="text-metric-success" text="R$ 186,30" />
+                              <Label styleClass="text-section-label" text="Média das vendas finalizadas">
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
+                           <children>
+                              <Label styleClass="text-section-label" text="CLIENTES ATENDIDOS" />
+                              <Label styleClass="text-metric-primary" text="31" />
+                              <Label styleClass="text-section-label" text="Atendimentos no período">
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+
+                        <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
+                           <children>
+                              <Label styleClass="text-section-label" text="PEDIDOS ABERTOS" />
+                              <Label styleClass="text-metric-info" text="6" />
+                              <Label styleClass="text-section-label" text="Pendências operacionais">
+                                 <VBox.margin>
+                                    <Insets top="4.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-
-            <!-- Metric Cards Container -->
-            <HBox spacing="16.0">
-               <children>
-                  <!-- Card 1 -->
-                  <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
-                     <children>
-                        <Label styleClass="text-section-label" text="VENDAS DO DIA" />
-                        <Label styleClass="text-metric-primary" text="42" />
-                        <Label styleClass="text-section-label" text="Operações registradas hoje">
-                           <VBox.margin>
-                              <Insets top="4.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-
-                  <!-- Card 2 -->
-                  <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
-                     <children>
-                        <Label styleClass="text-section-label" text="TICKET MÉDIO" />
-                        <Label styleClass="text-metric-success" text="R$ 186,30" />
-                        <Label styleClass="text-section-label" text="Média das vendas finalizadas">
-                           <VBox.margin>
-                              <Insets top="4.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-
-                  <!-- Card 3 -->
-                  <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
-                     <children>
-                        <Label styleClass="text-section-label" text="CLIENTES ATENDIDOS" />
-                        <Label styleClass="text-metric-primary" text="31" />
-                        <Label styleClass="text-section-label" text="Atendimentos no período">
-                           <VBox.margin>
-                              <Insets top="4.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-
-                  <!-- Card 4 -->
-                  <VBox HBox.hgrow="ALWAYS" styleClass="card-panel">
-                     <children>
-                        <Label styleClass="text-section-label" text="PEDIDOS ABERTOS" />
-                        <Label styleClass="text-metric-info" text="6" />
-                        <Label styleClass="text-section-label" text="Pendências operacionais">
-                           <VBox.margin>
-                              <Insets top="4.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
          </children>
-      </VBox>
+      </StackPane>
    </center>
 </BorderPane>
