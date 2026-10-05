@@ -1,156 +1,58 @@
-# 🛒 MG Variedades — Gestão de Loja
+# MG Variedades - Sistema de Vendas
 
-O **MG Variedades** é um sistema desktop moderno para gestão de pontos de venda em estabelecimentos varejistas de alto fluxo. O projeto foi projetado com arquitetura modular JavaFX (MVC), aproveitando componentes e temas utilitários para entregar uma interface fluida, responsiva e com estética SaaS/Web contemporânea.
+Projeto da disciplina APSOO. Interface em JavaFX (tema próprio inspirado no AtlantaFX), acesso a dados com DAO e banco MySQL.
 
----
-
-## 🛠️ Tech do Projeto & Arquitetura
-
-- **Linguagem:** Java 25
-- **Interface Gráfica:** JavaFX 25
-- **Build System & Dependências:** Apache Maven
-- **Design System / Tema:** [AtlantaFX](https://mkpaz.github.io/atlantafx/) (Tema _PrimerLight_)
-- **Biblioteca de Ícones:** [Ikonli](https://kordamp.org/ikonli/) (Pacote _Feather Icons_)
-- **Arquitetura de UI:** MVC (FXML + Controllers + Services + Repositories) + Java Module System (JPMS)
-
----
-
-## 📋 Pré-requisitos (O que instalar na máquina)
-
-Antes de clonar e rodar o projeto, certifique-se de ter os seguintes componentes instalados:
-
-1. **JDK 25** (ou JDK 21+ com suporte a JavaFX)
-   - Configure as variáveis de ambiente `JAVA_HOME` e adicione a pasta `bin` ao `Path`.
-2. **Apache Maven 3.8+**
-   - Verifique a instalação rodando `mvn -v` no terminal.
-3. **VS Code** (Recomendado) com as extensões:
-   - _Extension Pack for Java_ (Microsoft)
-   - _Maven for Java_ (Microsoft)
-
----
-
-## 🚀 Como Rodar o Projeto
-
-1. **Clone o repositório:**
-
-   ```bash
-   git clone [https://github.com/APSOO-PROJECT/mg-variedades.git](https://github.com/APSOO-PROJECT/mg-variedades.git)
-   cd mg-variedades
-   ```
-
-````
-
-2. **Execute a aplicação via Maven:**
-```bash
-mvn clean javafx:run
-
-````
-
----
-
-## 📁 Estrutura de Pastas e Arquitetura
-
-Organização técnica em camadas seguindo a arquitetura **MVC**:
+## Arquitetura
 
 ```text
-mg-variedades/
-├── .github/                 # Workflows de CI, templates de Issue e Pull Request
-├── .vscode/                 # Configurações de execução e ambiente do VS Code
-├── src/
-│   └── main/
-│       ├── java/
-│       │   └── com/empresa/pdv/
-│       │       ├── controllers/     # Controladores de UI e eventos de tela (FXML)
-│       │       │   ├── CaixaController.java
-│       │       │   ├── CategoriasController.java
-│       │       │   ├── ConsultaProdutosController.java
-│       │       │   ├── DashboardController.java
-│       │       │   ├── DevolucoesController.java
-│       │       │   ├── LoginController.java
-│       │       │   ├── ProdutosController.java
-│       │       │   ├── RelatoriosController.java
-│       │       │   ├── UsuariosController.java
-│       │       │   └── VendasController.java
-│       │       ├── models/          # Entidades do domínio (Produto, Venda, Usuario, etc.)
-│       │       ├── repository/      # Persistência e acesso a dados (DAOs / SQL)
-│       │       ├── services/        # Regras de negócio e validações
-│       │       │   ├── AuthService.java
-│       │       │   ├── CaixaService.java
-│       │       │   ├── CategoriaService.java
-│       │       │   ├── DevolucaoService.java
-│       │       │   ├── ProdutoService.java
-│       │       │   ├── ReportExportService.java
-│       │       │   ├── UsuarioService.java
-│       │       │   └── VendaService.java
-│       │       ├── utils/           # Formatadores, helpers de data/moeda e gerenciador de sessão
-│       │       ├── App.java         # Entry Point principal do JavaFX
-│       │       └── SystemInfo.java
-│       │   └── module-info.java    # Configuração de reflexão e Módulos Java (JPMS)
-│       └── resources/
-│           └── com/empresa/pdv/     # Arquivos de Visão (FXML) e Ativos Visuais
-│               ├── styles/
-│               │   └── globals.css  # Variáveis de cores, tokens e utilitários globais
-│               └── views/           # Telas FXML do sistema
-│                   ├── caixa.fxml
-│                   ├── categorias.fxml
-│                   ├── consulta_produtos.fxml
-│                   ├── dashboard.fxml
-│                   ├── devolucoes.fxml
-│                   ├── login.fxml
-│                   ├── produtos.fxml
-│                   ├── relatorios.fxml
-│                   ├── usuarios.fxml
-│                   └── vendas.fxml
-├── pom.xml                  # Dependências Maven (JavaFX, AtlantaFX, Ikonli)
-└── README.md
-
+sql/
+├── bd.sql              (esquema + admin padrão + categorias padrão)
+└── dados_teste.sql     (opcional: vendedor, produtos e caixa aberto para testes)
+src/main/java/br/com/apsoo/
+├── MainApp.java
+├── model/              (entidades e regras de negócio)
+├── dao/                (Conexao + um DAO por entidade)
+├── controller/         (fluxo dos casos de uso)
+└── view/               (telas JavaFX)
+src/main/resources/css/tema.css
 ```
 
----
+## Como executar
 
-## 🎨 Padrões de Front-End & Estilização
+1. Execute `sql/bd.sql` no MySQL (e, se quiser dados de exemplo, `sql/dados_teste.sql`).
+2. Ajuste URL, usuário e senha em `br.com.apsoo.dao.Conexao`.
+3. Rode `mvn javafx:run`.
 
-Utilizamos o **AtlantaFX** combinado com um sistema de variáveis globais em CSS no `globals.css` para garantir a consistência visual da aplicação:
+Login padrão: `admin` / `admin123`. Com `dados_teste.sql`: `vendedor` / `vendedor123`.
 
-- **Zero Cores Hardcoded:** É estritamente proibido definir cores diretamente nos arquivos FXML via propriedades inline (ex: `style="-fx-background-color: #FFFFFF;"`). Toda a estilização deve consumir as classes utilitárias ou variáveis globais.
-- **Uso do `globals.css`:** Utilize a propriedade `styleClass=""` nos elementos FXML para aplicar layouts e tokens visuais (ex: `styleClass="card-panel"`, `styleClass="text-heading"`).
-- **Classes Utilitárias AtlantaFX:** Faça uso das classes nativas para botões e componentes (ex: `accent`, `flat`, `danger`, `success`).
-- **Ícones Ikonli (Feather Icons):**
-- Todos os ícones devem utilizar a tag `<FontIcon />`.
-- O prefixo obrigatório para ícones da coleção Feather é **`fth-`** (exemplo: `fth-shopping-cart`, `fth-user`, `fth-home`, `fth-box`).
+## Iterações implementadas
 
----
+- 1ª: Login/logout e Registrar venda (CPF/CNPJ, produtos, pagamento em dinheiro, Pix ou cartão).
+- 2ª: Localizar venda e Devolução.
+- 3ª: Produtos e Categorias (com histórico de alterações da categoria).
+- 4ª: Caixa (abrir, sangria, suprimento, fechar e histórico).
+- 5ª: Usuários e Minha conta (redefinir senha).
+- 6ª: Dashboard, Estoque, Vendas por categoria e Relatório de vendas por período.
+- 7ª: Relatórios de mais vendidos, por vendedor, produtos em falta e devoluções.
+- 8ª: Exportação dos relatórios em PDF (OpenPDF) e CSV (planilha), preservando os filtros da tela.
 
-## 🤝 Fluxo de Contribuição & Git
+## Interface
 
-Para manter o repositório organizado e profissional, siga rigorosamente as orientações:
+- JavaFX com tema próprio (`src/main/resources/css/tema.css`): cor primária azul, cantos arredondados, ícones SVG.
+- Totalmente responsiva: o menu lateral vira só ícones abaixo de 1000 px e uma gaveta abaixo de 720 px; formulários,
+  indicadores e filtros reorganizam as colunas conforme a largura (`GradeResponsiva`, `Barra`, `Fluxo`); as tabelas têm
+  larguras mínimas e rolam na horizontal quando a janela é muito estreita.
+- Componentes reutilizáveis em `br.com.apsoo.view`: `Icones`, `Botoes`, `Campo`, `Passo`, `Indicador`, `Tabelas`.
 
-### 1. Padrão de Commits (Conventional Commits)
+## Configurações
 
-Escreva mensagens de commit claras utilizando os prefixos definidos:
+Em **Configurações** cada usuário escolhe onde abrem os formulários e as mensagens das ações (cadastrar, editar, pagar,
+confirmar...): **na própria tela** (padrão, sobre a página atual) ou **em uma janela separada**. A preferência fica
+guardada neste computador, por usuário (`PreferenciaDAO`), e vale para todas as janelas do sistema (`Janela`).
 
-- `feat:` Para novas funcionalidades de tela ou código (ex: `feat: adiciona tela de cadastro de produtos`).
-- `fix:` Para correção de bugs (ex: `fix: corrige carregamento do FXML de vendas`).
-- `style:` Alterações visuais, CSS ou ajustes de layout que não alteram lógica Java.
-- `docs:` Alterações na documentação (`README.md`, comentários de código).
-- `arch:` Alterações na estrutura de pacotes ou arquitetura do projeto.
+## Registrar venda (PDV em passos)
 
-### 2. Fluxo de Branches e Pull Requests (PR)
-
-1. **Nunca faça commit diretamente na branch `main`.**
-2. Crie uma branch nomeada a partir da issue atribuída a você no GitHub Projects:
-
-```bash
-git checkout -b feature/nome-da-sua-task
-
-```
-
-3. Realize os commits necessários e envie sua branch para o repositório remoto:
-
-```bash
-git push origin feature/nome-da-sua-task
-
-```
-
-4. Abra um **Pull Request (PR)** apontando para a branch `main`.
-5. Preencha o template de PR detalhadamente e aguarde a revisão e aprovação antes de realizar o merge.
+A venda é um assistente de 4 passos, na ordem do caso de uso Realizar Venda: **Cliente** (CPF/CNPJ) → **Produtos**
+(busca por nome ou código de barras e quantidade) → **Pagamento** (dinheiro com troco, Pix ou cartão) → **Revisão**
+e conclusão. Enter avança em campos de texto, Ctrl+Enter avança de qualquer ponto, e é possível voltar aos passos
+já feitos (botão Voltar ou clicando no indicador de passos).
